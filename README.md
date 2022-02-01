@@ -31,3 +31,68 @@ Repositorio para Lab2_CVDS
     - compiler:testCompile que compila el código de las pruebas del proyecto, que está en la carpeta main/src/test
 5. Qué es y para qué sirve el repositorio central de maven
     es un repositorio que contiene cientos de librerías constantemente actualizadas por sus creadores. Maven permite incluso buscar versiones más recientes o más antiguas de un código dado y agregarlas a nuestro proyecto. Todo se hará de forma automática sin que el usuario tenga que hacer nada más que definir las dependencias.
+# HACER EL ESQUELETO DE LA APLICACION
+- Cree el paquete edu.eci.cvds.patterns.shapes y el paquete edu.eci.cvds.patterns.shapes.concrete.
+- Cree una interfaz llamada Shape.java en el directorio src/main/java/edu/eci/cvds/patterns/shapes de la siguiente manera:
+
+<pre>package edu.eci.cvds.patterns.shapes;
+
+public interface Shape {
+    public int getNumberOfEdges();
+} </pre>
+- Cree una enumeración llamada RegularShapeType.java en el directorio src/main/java/edu/eci/cvds/patterns/shapes así:
+
+<pre>package edu.eci.cvds.patterns.shapes;
+
+public enum RegularShapeType {
+    Triangle, Quadrilateral, Pentagon, Hexagon
+}</pre>
+- En el directorio src/main/java/edu/eci/cvds/patterns/shapes/concrete cree las diferentes clases (Triangle, Quadrilateral, Pentagon, Hexagon), que implementen la interfaz creada y retornen el número correspondiente de vértices que tiene la figura. Siguiendo el ejemplo del triangulo:
+
+<pre>package edu.eci.cvds.patterns.shapes.concrete;
+
+import edu.eci.cvds.patterns.shapes.Shape;
+
+public class Triangle implements Shape {
+    public int getNumberOfEdges() {
+        return 3;
+    }
+}</pre>
+- Cree el archivo ShapeMain.java en el directorio src/main/java/edu/eci/cvds/patterns/shapes con el metodo main:
+
+<pre> package edu.eci.cvds.patterns.shapes;
+
+public class ShapeMain {
+    public static void main(String[] args) {
+        if (args == null || args.length != 1) {
+            System.err.println("Parameter of type RegularShapeType is required.");
+            return;
+        }
+        try {
+
+            RegularShapeType type = RegularShapeType.valueOf(args[0]);
+            Shape shape = ShapeFactory.create(type);
+            
+            System.out.println(String.format("Successfully created a %s with %s sides.", type, shape.getNumberOfEdges()));
+
+        } catch (IllegalArgumentException ex) {
+            System.err.println("Parameter '" + args[0] + "' is not a valid RegularShapeType");
+            return;
+        }
+    }
+}</pre>
+- Analice y asegúrese de entender cada una de las instrucciones que se encuentran en todas las clases que se crearon anteriormente.
+- Cree el archivo ShapeFactory.java en el directorio src/main/java/edu/eci/cvds/patterns/shapes implementando el patrón fábrica, haciendo uso de la instrucción switch-case de Java y usando las enumeraciones.
+
+- Ejecute múltiples veces la clase ShapeMain, usando el plugin exec de maven con los siguientes parámetros y verifique la salida en consola para cada una:
+
+    - Sin parámetros
+    - Parámetro: qwerty
+    - Parámetro: pentagon
+    - Parámetro Hexagon
+- ¿Cuál(es) de las anteriores instrucciones se ejecutan y funcionan correctamente y por qué?
+ENTREGAR
+Se espera al menos que durante la sesión de laboratorio, se termine el ejercicio del saludo y haya un avance del ejercicio de las figuras.
+Dentro del directorio del proyecto, cree un archivo de texto integrantes.txt con el nombre de los dos integrantes del taller.
+Crear un repositorio para este proyecto y agregar la url del mismo, como entrega del laboratorio.
+Investigue para qué sirve "gitignore" y cómo se usa. Para futuras entregas, debe estar configurado.
