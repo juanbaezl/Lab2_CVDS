@@ -91,8 +91,8 @@ public class ShapeMain {
     - Parámetro: pentagon
     - Parámetro Hexagon
 - ¿Cuál(es) de las anteriores instrucciones se ejecutan y funcionan correctamente y por qué?
-ENTREGAR
-Se espera al menos que durante la sesión de laboratorio, se termine el ejercicio del saludo y haya un avance del ejercicio de las figuras.
-Dentro del directorio del proyecto, cree un archivo de texto integrantes.txt con el nombre de los dos integrantes del taller.
-Crear un repositorio para este proyecto y agregar la url del mismo, como entrega del laboratorio.
-Investigue para qué sirve "gitignore" y cómo se usa. Para futuras entregas, debe estar configurado.
+# ENTREGAR
+- Se espera al menos que durante la sesión de laboratorio, se termine el ejercicio del saludo y haya un avance del ejercicio de las figuras.
+- Dentro del directorio del proyecto, cree un archivo de texto integrantes.txt con el nombre de los dos integrantes del taller.
+- Crear un repositorio para este proyecto y agregar la url del mismo, como entrega del laboratorio.
+- Investigue para qué sirve "gitignore" y cómo se usa. Para futuras entregas, debe estar configurado.
